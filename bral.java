@@ -17,16 +17,20 @@ public class bral {
       bar.zapisiZacetekTabele();
       bar.zapisiTr();
 
-      int rowSum = 0;
+      int colSum = 0;
       for (int i = 0; i < st1.size(); i++) {
+
          List listOfNumbers = (List) st1.get(i);
          List listOfColors = (List) br1.get(i);
-         rowSum += (int) listOfNumbers.get(i);
-         int colSum = 0;
+
+         colSum += (int) listOfNumbers.get(i);
+
+         int rowSum = 0;
+
          for (int y = 0; y < listOfNumbers.size(); y++) {
             int number = (int) listOfNumbers.get(y);
             int color = (int) listOfColors.get(y);
-            colSum += (int) listOfNumbers.get(i);
+            rowSum += (int) listOfNumbers.get(y);
 
             String backgrounColor = "";
 
@@ -60,16 +64,20 @@ public class bral {
                   break;
 
             }
-
-           
-            bar.zapisiVrsticoTabele(number, backgrounColor, rowSum);
+            bar.zapisiVrsticoTabele(number, backgrounColor);
             // izpiši v HTML tabelo ... barve ...
-            
          }
-         
+         System.out.print(colSum + " ");
+
+         bar.zapisisum(rowSum);
+
+         bar.zapisiKoncTr();
+         bar.zapisiTr();
+
       }
+
       bar.zapisiKoncTr();
-      
+
       bar.zapisiKonecTabele();
       bar.zapisiKoncneZnacke();
    }
