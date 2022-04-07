@@ -67,9 +67,7 @@ public class barve {
           w.write("background-color: #4caf50;");w.write("\r\n");
           w.write("color: white");w.write("\r\n");
           w.write("}");w.write("\r\n");
-          w.write("tr:nth-child(even){");w.write("\r\n");
-          w.write("background-color: #dddddd;");w.write("\r\n");
-          w.write("}");w.write("\r\n");
+         
           w.write("tr:hover {");w.write("\r\n");
           w.write("background-color: #abffab;");w.write("\r\n");
           w.write("}");w.write("\r\n");
@@ -137,13 +135,13 @@ public class barve {
       }
 
     
-      public void zapisiVrsticoTabele(Integer i1,  String backgroundColor, Integer sum){
+      public void zapisiVrsticoTabele(Integer i1, String backgroundColor ){
         try{
             
             FileOutputStream fos = new FileOutputStream(this.potDoDatoteke, true);
             Writer w = new BufferedWriter(new OutputStreamWriter(fos, "UTF-8"));
 
-      w.write("<td style='background-color:" + backgroundColor+"';>"+i1 +"</td><td>"+sum+"</td>"); w.write("\r\n");
+      w.write("<td style='background-color:" + backgroundColor+"';>"+i1 +"</td>"); w.write("\r\n");
        
         w.flush();
         w.close();
@@ -153,13 +151,13 @@ public class barve {
         }
     }
 
-    public void zapisisum(Integer i1,  Integer i2, Integer i3){
+    public void zapisisum(Integer i1){
       try{
           
           FileOutputStream fos = new FileOutputStream(this.potDoDatoteke, true);
           Writer w = new BufferedWriter(new OutputStreamWriter(fos, "UTF-8"));
 
-    w.write("<td>" + i1+"</td><td>"+i2 +"</td><td>"+i3+"</td>"); w.write("\r\n");
+    w.write("<td>" + i1+"</td>"); w.write("\r\n");
      
       w.flush();
       w.close();
