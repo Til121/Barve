@@ -1,5 +1,4 @@
-import java.util.LinkedList;
-import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class bral {
@@ -17,13 +16,13 @@ public class bral {
       bar.zapisiZacetekTabele();
       bar.zapisiTr();
 
-      int colSum = 0;
+      List<Integer> colSumList = new ArrayList<Integer>();
+
+ 
       for (int i = 0; i < st1.size(); i++) {
 
          List listOfNumbers = (List) st1.get(i);
          List listOfColors = (List) br1.get(i);
-
-         colSum += (int) listOfNumbers.get(i);
 
          int rowSum = 0;
 
@@ -33,6 +32,13 @@ public class bral {
             rowSum += (int) listOfNumbers.get(y);
 
             String backgrounColor = "";
+            
+            try{
+               int currentNumber = colSumList.get(y);
+               colSumList.set(y, currentNumber + number );            
+            }catch (IndexOutOfBoundsException e){
+               colSumList.add(y,  number );
+            }
 
             switch (color) {
                case 1:
@@ -67,15 +73,16 @@ public class bral {
             bar.zapisiVrsticoTabele(number, backgrounColor);
             // izpiši v HTML tabelo ... barve ...
          }
-         System.out.print(colSum + " ");
-
          bar.zapisisum(rowSum);
 
          bar.zapisiKoncTr();
          bar.zapisiTr();
-
+        
       }
-
+      bar.zapisiTr();
+      for (int i = 0; i < colSumList.size(); i++) {
+         bar.zapisiColsum(colSumList.get(i)); 
+      }
       bar.zapisiKoncTr();
 
       bar.zapisiKonecTabele();
