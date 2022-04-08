@@ -1,4 +1,3 @@
-
 import java.io.*;
 
 
@@ -151,7 +150,7 @@ public class barve {
         }
     }
 
-    public void zapisisum(Integer i1){
+    public void zapisisum(int i1){
       try{
           
           FileOutputStream fos = new FileOutputStream(this.potDoDatoteke, true);
@@ -166,6 +165,22 @@ public class barve {
           System.out.println("Napaka -> " + e.getMessage());
       }
   }
+
+  public void zapisiColsum(int i1){
+    try{
+        
+        FileOutputStream fos = new FileOutputStream(this.potDoDatoteke, true);
+        Writer w = new BufferedWriter(new OutputStreamWriter(fos, "UTF-8"));
+
+  w.write("<td>" + i1+"</td>"); w.write("\r\n");
+   
+    w.flush();
+    w.close();
+    }
+    catch (Exception e) {
+        System.out.println("Napaka -> " + e.getMessage());
+    }
+}
 
     public void zapisiKoncTr (){
       try{
